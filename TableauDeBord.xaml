@@ -1,0 +1,84 @@
+<Window x:Class="Ostinato_lab.TableauDeBord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tableau de bord" Height="600" Width="800">
+    <Grid Background="#F5F5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!-- Division de la page : Menu fixe à gauche (180px) et Contenu à droite -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="0*" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- MENU LATÉRAL GAUCHE (Navigation fixe pour créer des repères) -->
+        <Border Grid.Column="0" Background="#E0E0E0" Margin="10,10,10,10" CornerRadius="10" Grid.RowSpan="2">
+            <StackPanel Margin="10">
+                <TextBlock Text="[ Mon Espace ]" FontWeight="Bold" Margin="0,10,0,30" HorizontalAlignment="Center" FontSize="16"/>
+
+                <!-- Boutons du flux général de l'application -->
+                <Button Content="Tableau de bord" Height="35" Margin="0,0,0,10" Background="#CCCCCC" BorderThickness="0" FontWeight="Bold"/>
+                <Button Content="Ma Formation" Height="35" Margin="0,0,0,10" Background="#A0A0A0" Foreground="White" BorderThickness="0"/>
+                <Button Content="Mes Jalons" Height="35" Margin="0,0,0,10" Background="#A0A0A0" Foreground="White" BorderThickness="0"/>
+                <Button Content="Messagerie" Height="35" Margin="0,0,0,40" Background="#A0A0A0" Foreground="White" BorderThickness="0"/>
+
+                <Button Content="Déconnexion" Height="30" Background="#888888" Foreground="White" BorderThickness="0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- CONTENU PRINCIPAL À DROITE (Zone d'apprentissage épurée) -->
+        <Grid Grid.Column="2" Margin="0,20,20,20" Grid.RowSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!-- Message d'accueil / Impulsion -->
+                <RowDefinition Height="*" />
+                <!-- Bloc Formation active -->
+                <RowDefinition Height="Auto" />
+                <!-- Zone des notifications / Rappels -->
+            </Grid.RowDefinitions>
+
+            <!-- LIGNE 1 : Accueil + Impulsion bienveillante du jour -->
+            <StackPanel Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="Bonjour, Apprenant" FontSize="24" FontWeight="Bold" Foreground="#333333"/>
+                <!-- Zone d'impulsion bienveillante (Rappel TDAH non agressif) -->
+                <Border Background="#EAEAEA" CornerRadius="5" Padding="10" Margin="0,10,0,0">
+                    <TextBlock Text="💡 Impulsion bienveillante : Prêt à avancer à votre rythme aujourd'hui ? Pas de pression, chaque petit pas compte." FontStyle="Italic" Foreground="#555555"/>
+                </Border>
+            </StackPanel>
+
+            <!-- LIGNE 2 : Contrainte TDAH (Une SEULE formation active affichée) -->
+            <GroupBox Grid.Row="1" Header="Ma Formation Active" FontSize="14" FontWeight="Bold" Padding="15" Background="White" BorderBrush="#CCCCCC">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Titre de l'unique formation suivie -->
+                    <TextBlock Grid.Row="0" Text="[ NOM DE LA FORMATION EN COURS ]" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" Foreground="#333333"/>
+
+                    <!-- Barre de progression visuelle globale (Suivi étape par étape) -->
+                    <StackPanel Grid.Row="1" Margin="0,0,0,20">
+                        <TextBlock Text="Votre progression globale :" Margin="0,0,0,5" Foreground="#666666"/>
+                        <ProgressBar Height="20" Value="40" Background="#E0E0E0" Foreground="#888888" BorderThickness="0"/>
+                    </StackPanel>
+
+                    <!-- Prochains Jalons à atteindre -->
+                    <StackPanel Grid.Row="2">
+                        <TextBlock Text="Prochains jalons à valider :" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <CheckBox Content="[Jalon 1] Lire le support de l'étape 1" IsChecked="True" Margin="0,0,0,5" IsEnabled="False"/>
+                        <CheckBox Content="[Jalon 2] Terminer la première tentative d'exercice" Margin="0,0,0,5" IsEnabled="False"/>
+                        <CheckBox Content="[Jalon 3] Envoyer un message de validation au formateur" Margin="0,0,0,5" IsEnabled="False"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <!-- LIGNE 3 : Raccourci vers une action directe pour éviter l'hésitation -->
+            <Button Grid.Row="2" Content="Reprendre là où j'en étais (Étape suivante)" Height="45" Margin="0,20,0,0" Background="#888888" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="0"/>
+        </Grid>
+    </Grid>
+</Window>
