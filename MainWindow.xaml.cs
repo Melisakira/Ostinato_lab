@@ -1,13 +1,4 @@
-﻿using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Ostinato_lab
 {
@@ -19,6 +10,12 @@ namespace Ostinato_lab
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void BtnConnexion_Click(object sender, RoutedEventArgs e)
+        {
+            TableauDeBord suite = new TableauDeBord();
+            suite.Show();
+            this.Close();
         }
     }
 }

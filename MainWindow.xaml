@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ostinato_lab"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="950">
 
     <Grid Background="#F5F5F5">
         <!-- Division de l'écran en deux colonnes équitables -->
@@ -45,7 +45,8 @@
             <PasswordBox Height="35" Background="White" BorderBrush="#888888" BorderThickness="1" VerticalContentAlignment="Center" Margin="0,0,0,25"/>
 
             <!-- Bouton large, facile à cibler sans stress -->
-            <Button Content="Entrer dans mon espace" Height="42" Background="#A0A0A0" Foreground="White" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="Entrer dans mon espace" Height="42" Background="#A0A0A0" Foreground="White" FontWeight="Bold" BorderThickness="0" Click="BtnConnexion_Click"/>
+
         </StackPanel>
     </Grid>
 </Window>
