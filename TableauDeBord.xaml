@@ -19,8 +19,11 @@
 
                 <Button Content="Tableau de bord" Height="40" Margin="10,5"
                         Background="#A6A6A6" BorderThickness="0" FontWeight="Bold"/>
+
+                <!-- MODIFICATION : Ajout de l'événement Click pour aller sur PageFormation -->
                 <Button Content="Ma Formation" Height="40" Margin="10,5"
-                        Background="#BFBFBF" BorderThickness="0"/>
+                        Background="#BFBFBF" BorderThickness="0" Click="BtnMaFormation_Click"/>
+
                 <Button Content="Mes Jalons" Height="40" Margin="10,5"
                         Background="#BFBFBF" BorderThickness="0"/>
                 <Button Content="Messagerie" Height="40" Margin="10,5"
@@ -87,10 +90,12 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
+                    <!-- Inchangé -->
                     <Button Grid.Column="0" Content="Retour à la page d'accueil" HorizontalAlignment="Left"
                             Height="42" Width="200" Background="#505050" Foreground="White" FontWeight="Bold" BorderThickness="0" 
                             Click="BtnRetour_Click"/>
 
+                    <!-- Gardé l'événement BtnVersEtape_Click (qui ouvrira PageFormation dans le C#) -->
                     <Button Grid.Column="1" Content="Reprendre là où j'en étais" HorizontalAlignment="Left"
                             Height="42" Width="200" Background="#A0A0A0" Foreground="White" FontWeight="Bold" BorderThickness="0" 
                             Click="BtnVersEtape_Click" Margin="135,0,0,0"/>

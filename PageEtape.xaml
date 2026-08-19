@@ -38,10 +38,10 @@
         <Border Grid.Column="1" Background="#F5F5F5">
             <StackPanel Margin="30,20,30,0">
 
-                <!-- TRANSFORMÉ EN BOUTON STYLE LIEN POUR LE RETOUR AU TABLEAU DE BORD -->
+                <!-- MODIFICATION : Click changé pour BtnRetourModule_Click afin d'aller sur PageFormation -->
                 <Button Content="← Retour au Module 2" Foreground="#666666" FontSize="13" 
                         Margin="0,0,0,15" HorizontalAlignment="Left" Background="Transparent" 
-                        BorderThickness="0" Cursor="Hand" Click="BtnRetour_Click"/>
+                        BorderThickness="0" Cursor="Hand" Click="BtnRetourModule_Click"/>
 
                 <!-- Fil d'ariane module / étape -->
                 <TextBlock Text="[Module 2] Notions de base" FontWeight="SemiBold" FontSize="13"
@@ -74,10 +74,9 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- RETOURNE AUSSI AU TABLEAU DE BORD VIA ANNULER/PRECEDENT -->
+                    <!-- MODIFICATION : Retrait de l'attribut Click pour qu'il ne fasse plus rien -->
                     <Button Grid.Column="0" Content="← Étape précédente" Width="160" Height="40"
-                            HorizontalAlignment="Left" Background="#E0E0E0" BorderThickness="0"
-                            Click="BtnRetour_Click"/>
+                            HorizontalAlignment="Left" Background="#E0E0E0" BorderThickness="0"/>
 
                     <!-- AJOUT DU CLICK POUR ALLER VERS LA PAGE TENTATIVE -->
                     <Button Grid.Column="1" Content="Commencer l'exercice →" Width="200" Height="40"

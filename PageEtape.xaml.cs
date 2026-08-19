@@ -9,28 +9,26 @@ namespace Ostinato_lab
             InitializeComponent();
         }
 
-        // 1. Menu latéral : Ouvre la page des Jalons
-        private void BtnJalons_Click(object sender, RoutedEventArgs e)
+        // Action du bouton "← Retour au Module 2" -> Ouvre PageFormation
+        private void BtnRetourModule_Click(object sender, RoutedEventArgs e)
         {
-            PageJalons suite = new PageJalons();
-            suite.Show();
+            PageFormation pageFormation = new PageFormation();
+            pageFormation.Show();
             this.Close();
         }
 
-        // 2. Bouton Retour : Revient sur le Tableau de bord
-        private void BtnRetour_Click(object sender, RoutedEventArgs e)
-        {
-            TableauDeBord precedent = new TableauDeBord();
-            precedent.Show();
-            this.Close();
-        }
-
-        // 3. Bouton Commencer l'exercice : Ouvre la page Tentative
+        // MODIFICATION : Action du bouton "Commencer l'exercice →" -> Ouvre PageTentative
         private void BtnCommencerExercice_Click(object sender, RoutedEventArgs e)
         {
-            PageTentative exercice = new PageTentative();
-            exercice.Show();
-            this.Close();
+            PageTentative pageTentative = new PageTentative();
+            pageTentative.Show();
+            this.Close(); // Ferme la page de l'étape
+        }
+
+        // Action du menu latéral "Mes Jalons"
+        private void BtnJalons_Click(object sender, RoutedEventArgs e)
+        {
+            // Ajoutez votre logique pour les jalons ici si nécessaire
         }
     }
 }
