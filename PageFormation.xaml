@@ -57,7 +57,7 @@
                 </Border>
 
                 <!-- NOUVEAU BOUTON : Retour à la page d'accueil -->
-                <Button Content="← Retour à la page d'accueil" Width="200" Height="32"
+                <Button Content="← Retour à  la formation " Width="200" Height="32"
                         Margin="0,15,0,0" HorizontalAlignment="Left" Background="#BFBFBF"
                         Foreground="Black" BorderThickness="0" Click="RetourAccueil_Click"/>
             </StackPanel>

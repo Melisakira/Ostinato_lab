@@ -24,9 +24,9 @@
                 <Button Content="Mes Jalons" Height="40" Margin="10,5"
                         Background="#A6A6A6" BorderThickness="0" FontWeight="Bold"/>
 
-                <!-- AJOUT DU CLICK SUR MESSAGERIE -->
+                <!-- AJOUT DU CLICK ICI -->
                 <Button Content="Messagerie" Height="40" Margin="10,5"
-                        Background="#BFBFBF" BorderThickness="0" Click="BtnMessagerie_Click"/>
+                        Background="#BFBFBF" BorderThickness="0" Click="ButtonMessagerie_Click"/>
 
                 <Button Content="Déconnexion" Height="40" Margin="10,300,10,5"
                         Background="#BFBFBF" BorderThickness="0"/>
@@ -43,9 +43,10 @@
 
                 <Separator Background="#CCCCCC" Margin="0,0,0,15"/>
 
-                <!-- Liste des jalons : LECTURE SEULE -->
+                <!-- Liste des jalons -->
                 <StackPanel>
 
+                    <!-- Jalon complété : PAS de bouton de recalibrage -->
                     <Border Background="White" BorderBrush="#CCCCCC" BorderThickness="1"
                             CornerRadius="4" Padding="15" Margin="0,0,0,10">
                         <StackPanel Orientation="Horizontal">
@@ -58,40 +59,68 @@
                         </StackPanel>
                     </Border>
 
+                    <!-- Jalon à venir : AVEC bouton de recalibrage -->
                     <Border Background="White" BorderBrush="#CCCCCC" BorderThickness="1"
                             CornerRadius="4" Padding="15" Margin="0,0,0,10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="○" Foreground="#999999" FontWeight="Bold"
-                                       FontSize="16" Width="30" VerticalAlignment="Top"/>
-                            <StackPanel>
-                                <TextBlock Text="[Jalon 2] Terminer la première tentative d'exercice" FontWeight="Bold"/>
-                                <TextBlock Text="À venir" Foreground="#999999" FontSize="12" Margin="0,3,0,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="○" Foreground="#999999" FontWeight="Bold"
+                                           FontSize="16" Width="30" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <TextBlock Text="[Jalon 2] Terminer la première tentative d'exercice" FontWeight="Bold"/>
+                                    <TextBlock Text="À venir" Foreground="#999999" FontSize="12" Margin="0,3,0,0"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                            <Button Grid.Column="1" Content="✎ Recalibrer" Width="110" Height="32"
+                                    VerticalAlignment="Center"
+                                    Background="#E0E0E0" BorderThickness="0" FontSize="12"/>
+                        </Grid>
                     </Border>
 
                     <Border Background="White" BorderBrush="#CCCCCC" BorderThickness="1"
                             CornerRadius="4" Padding="15" Margin="0,0,0,10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="○" Foreground="#999999" FontWeight="Bold"
-                                       FontSize="16" Width="30" VerticalAlignment="Top"/>
-                            <StackPanel>
-                                <TextBlock Text="[Jalon 3] Envoyer un message de validation au formateur" FontWeight="Bold"/>
-                                <TextBlock Text="À venir" Foreground="#999999" FontSize="12" Margin="0,3,0,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="○" Foreground="#999999" FontWeight="Bold"
+                                           FontSize="16" Width="30" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <TextBlock Text="[Jalon 3] Envoyer un message de validation au formateur" FontWeight="Bold"/>
+                                    <TextBlock Text="À venir" Foreground="#999999" FontSize="12" Margin="0,3,0,0"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                            <Button Grid.Column="1" Content="✎ Recalibrer" Width="110" Height="32"
+                                    VerticalAlignment="Center"
+                                    Background="#E0E0E0" BorderThickness="0" FontSize="12"/>
+                        </Grid>
                     </Border>
 
                     <Border Background="White" BorderBrush="#CCCCCC" BorderThickness="1"
                             CornerRadius="4" Padding="15" Margin="0,0,0,10">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="○" Foreground="#999999" FontWeight="Bold"
-                                       FontSize="16" Width="30" VerticalAlignment="Top"/>
-                            <StackPanel>
-                                <TextBlock Text="[Jalon 4] Terminer le module 2" FontWeight="Bold"/>
-                                <TextBlock Text="À venir" Foreground="#999999" FontSize="12" Margin="0,3,0,0"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                <TextBlock Text="○" Foreground="#999999" FontWeight="Bold"
+                                           FontSize="16" Width="30" VerticalAlignment="Top"/>
+                                <StackPanel>
+                                    <TextBlock Text="[Jalon 4] Terminer le module 2" FontWeight="Bold"/>
+                                    <TextBlock Text="À venir" Foreground="#999999" FontSize="12" Margin="0,3,0,0"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+                            <Button Grid.Column="1" Content="✎ Recalibrer" Width="110" Height="32"
+                                    VerticalAlignment="Center"
+                                    Background="#E0E0E0" BorderThickness="0" FontSize="12"/>
+                        </Grid>
                     </Border>
 
                 </StackPanel>
@@ -99,8 +128,7 @@
                 <!-- Note informative -->
                 <Border Background="#EAEAEA" CornerRadius="4" Padding="12" Margin="0,10,0,20">
                     <TextBlock TextWrapping="Wrap" FontStyle="Italic" FontSize="12" Foreground="#555555">
-                        <Run Text="ℹ Vos jalons évoluent automatiquement selon votre progression. "/>
-                        <Run Text="Aucune action de votre part n'est requise ici."/>
+                        <Run Text="ℹ Vos jalons sont recalibrables à tout moment depuis cet écran."/>
                     </TextBlock>
                 </Border>
 

@@ -18,6 +18,12 @@ namespace Ostinato_lab
             suite.Show();
             this.Close();
         }
+
+        // Handler supplémentaire pour correspondre au nom utilisé dans le XAML
+        private void ButtonMessagerie_Click(object sender, RoutedEventArgs e)
+        {
+            // Délègue vers l'implémentation existante
+            BtnMessagerie_Click(sender, e);
+        }
     }
 }
-
