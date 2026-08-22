@@ -109,5 +109,14 @@
             </ScrollViewer>
 
         </Grid>
+        <ListView x:Name="ListeFormations">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Titre" DisplayMemberBinding="{Binding Titre}" Width="200"/>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="300"/>
+                    <GridViewColumn Header="Niveau" DisplayMemberBinding="{Binding Niveau}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
