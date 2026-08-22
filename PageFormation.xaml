@@ -110,13 +110,14 @@
 
         </Grid>
         <ListView x:Name="ListeFormations">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Titre" DisplayMemberBinding="{Binding Titre}" Width="200"/>
-                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="300"/>
-                    <GridViewColumn Header="Niveau" DisplayMemberBinding="{Binding Niveau}" Width="100"/>
-                </GridView>
-            </ListView.View>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding Titre}" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Window>
