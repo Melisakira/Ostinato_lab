@@ -1,0 +1,126 @@
+<style>
+#mcd svg .er.entityBox { rx: 8px; }
+#mcd svg .er.relationshipLabel { font-size: 12px; }
+</style>
+<div id="mcd"></div>
+<script type="module">
+import mermaid from 'https://esm.sh/mermaid@11/dist/mermaid.esm.min.mjs';
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+await document.fonts.ready;
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  fontFamily: '"anthropic-sans", sans-serif',
+  themeVariables: {
+    darkMode: dark,
+    fontSize: '13px',
+    fontFamily: '"anthropic-sans", sans-serif',
+    lineColor: dark ? '#9c9a92' : '#73726c',
+    textColor: dark ? '#c2c0b6' : '#3d3d3a',
+  },
+  er: { layoutDirection: 'TB', entityPadding: 12, useMaxWidth: true }
+});
+
+const src = `erDiagram
+    UTILISATEUR {
+        int id
+        string nom
+        string email
+        string motDePasse
+        string role
+        bool statutActif
+    }
+    FORMATION {
+        int id
+        string titre
+        string description
+        string niveau
+        int dureeReference
+        string etat
+    }
+    MODULE {
+        int id
+        string titre
+        int ordre
+    }
+    MICRO_ETAPE {
+        int id
+        string titre
+        string type
+        string contenu
+    }
+    JALON {
+        int id
+        date dateCible
+        string objectif
+        string description
+        string statut
+    }
+    TENTATIVE {
+        int id
+        date date
+        string resultat
+        string statut
+    }
+    PROGRESSION {
+        int id
+        int etapesRealisees
+        float pourcentage
+    }
+    VALORISATION_FINALE {
+        int id
+        date dateGeneration
+    }
+    RAPPEL {
+        int id
+        string type
+        date dateGeneration
+    }
+    IMPULSION_BIENVEILLANTE {
+        int id
+        string message
+        date dateGeneration
+    }
+    MESSAGE {
+        int id
+        string contenu
+        date dateEnvoi
+        bool lu
+    }
+    PARAMETRES {
+        int id
+        string theme
+        int taillePolice
+        bool notifications
+    }
+
+    FORMATION ||--o{ MODULE : compose
+    MODULE ||--o{ MICRO_ETAPE : compose
+
+    UTILISATEUR }o--o{ FORMATION : suit
+    UTILISATEUR }o--o{ FORMATION : attribue
+
+    UTILISATEUR ||--o{ JALON : concerne
+    FORMATION ||--o{ JALON : concerne
+
+    UTILISATEUR ||--o{ TENTATIVE : realise
+    MICRO_ETAPE ||--o{ TENTATIVE : porte
+
+    UTILISATEUR ||--|| PROGRESSION : suivi_par
+    FORMATION ||--|| PROGRESSION : suivi_de
+
+    UTILISATEUR ||--o{ VALORISATION_FINALE : obtient
+    FORMATION ||--o{ VALORISATION_FINALE : genere
+
+    UTILISATEUR ||--o{ RAPPEL : recoit
+    UTILISATEUR ||--o{ IMPULSION_BIENVEILLANTE : recoit
+
+    UTILISATEUR ||--o{ MESSAGE : envoie
+    UTILISATEUR ||--o{ MESSAGE : recoit
+
+    UTILISATEUR ||--|| PARAMETRES : possede
+`;
+
+const { svg } = await mermaid.render('mcd-svg', src);
+document.getElementById('mcd').innerHTML = svg;
+</script>
