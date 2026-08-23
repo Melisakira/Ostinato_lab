@@ -1,0 +1,15 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="TealFond" Color="#E1F5EE"/>
+    <SolidColorBrush x:Key="TealTexteFonce" Color="#04342C"/>
+    <SolidColorBrush x:Key="TealTexteMoyen" Color="#085041"/>
+
+    <SolidColorBrush x:Key="AmbreFond" Color="#FAEEDA"/>
+    <SolidColorBrush x:Key="AmbreTexteMoyen" Color="#854F0B"/>
+
+    <SolidColorBrush x:Key="StatutActif" Color="#1D9E75"/>
+    <SolidColorBrush x:Key="StatutAtteint" Color="#B4B2A9"/>
+    <SolidColorBrush x:Key="StatutNonAtteint" Color="#BA7517"/>
+
+</ResourceDictionary>
