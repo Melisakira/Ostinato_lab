@@ -39,7 +39,7 @@
 
                 <!-- MODIFIÉ : Bouton Déconnexion (Gris très clair #F0F0F0 avec fine bordure de structure) -->
                 <Button Content="Déconnexion" Height="40" Margin="10,300,10,5"
-                        Background="#F0F0F0" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
+                        Background="{StaticResource GrisBouton}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
                         Foreground="{StaticResource TealTexteFonce}"/>
             </StackPanel>
         </Border>
@@ -50,7 +50,7 @@
 
                 <!-- MODIFIÉ : Bouton Retour au Module 2 (Gris très clair #F0F0F0) -->
                 <Button Content="← Retour au Module 2" Foreground="{StaticResource TealTexteFonce}" FontSize="13" 
-                        Margin="0,0,0,15" HorizontalAlignment="Left" Background="#F0F0F0" 
+                        Margin="0,0,0,15" HorizontalAlignment="Left" Background="{StaticResource GrisBouton}" 
                         BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" Padding="10,2" Cursor="Hand" Click="BtnRetourModule_Click"/>
 
                 <!-- Fil d'ariane module / étape -->
@@ -91,7 +91,7 @@
 
                     <!-- MODIFIÉ : Étape précédente (Gris très clair #F0F0F0) -->
                     <Button Grid.Column="0" Content="← Étape précédente" Width="160" Height="40"
-                            HorizontalAlignment="Left" Background="#F0F0F0" 
+                            HorizontalAlignment="Left" Background="{StaticResource GrisBouton}" 
                             BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1"
                             Foreground="{StaticResource TealTexteFonce}">
                         <Button.Resources>

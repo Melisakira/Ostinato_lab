@@ -12,4 +12,18 @@
     <SolidColorBrush x:Key="StatutAtteint" Color="#B4B2A9"/>
     <SolidColorBrush x:Key="StatutNonAtteint" Color="#BA7517"/>
 
+    <!-- NUANCES COMPLÉMENTAIRES TDAH -->
+    
+    <SolidColorBrush x:Key="GrisBouton" Color="#F0F0F0"/>
+    <SolidColorBrush x:Key="TealTexteSelection" Color="#0D7660"/>
+
+    <SolidColorBrush x:Key="TealFondHover" Color="#CDEFE3"/>
+    <SolidColorBrush x:Key="AmbreFondHover" Color="#F5E3C3"/>
+
+    <SolidColorBrush x:Key="AlerteInfoFond" Color="#E3EFFB"/>
+
+    <SolidColorBrush x:Key="AlerteInfoTexte" Color="#1D4ED8"/>
+
+    <SolidColorBrush x:Key="AlerteSuivi" Color="#6B7280"/>
+
 </ResourceDictionary>
