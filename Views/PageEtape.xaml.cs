@@ -1,6 +1,6 @@
 using System.Windows;
 
-namespace Ostinato_lab
+namespace Ostinato_lab.Views
 {
     public partial class PageEtape : Window
     {

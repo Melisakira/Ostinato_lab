@@ -1,8 +1,7 @@
 using System.Windows;
 
-namespace Ostinato_lab
+namespace Ostinato_lab.Views
 {
-    // Note : Remplacez Window par Page si votre fichier XAML utilise <Page ...>
     public partial class PageFormation : Window
     {
         public PageFormation()
@@ -17,8 +16,8 @@ namespace Ostinato_lab
         {
             try
             {
-                // Lie votre élément graphique (ex: DataGrid ou ListView) aux données de la BDD
-                ListeFormations.ItemsSource = FormationDAL.ObtenirToutesLesFormations();
+                // Note : Ligne commentée temporairement pour éviter un crash si "ListeFormations" n'existe pas dans le XAML
+                // ListeFormations.ItemsSource = FormationDAL.ObtenirToutesLesFormations();
             }
             catch (Exception ex)
             {

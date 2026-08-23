@@ -1,0 +1,1 @@
+SELECT * FROM ostinato_lab.utilisateur;

@@ -1,9 +1,8 @@
-<Window x:Class="Ostinato_lab.PageFormation"
+<Window x:Class="Ostinato_lab.Views.PageFormation"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Ma Formation" Height="650" Width="950"
         Background="{StaticResource TealFond}">
-    <!-- Remplacement du fond sombre agressif -->
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -12,18 +11,15 @@
         </Grid.ColumnDefinitions>
 
         <!-- ===== NAV LATERALE ===== -->
-        <!-- Remplacement du gris #D9D9D9 par un fond blanc cassé teinté très doux -->
         <Border Grid.Column="0" Background="{StaticResource AmbreFond}">
             <StackPanel Margin="0,20,0,0">
                 <TextBlock Text="[ Mon Espace ]" FontWeight="Bold" FontSize="16"
                            Margin="20,0,0,20" HorizontalAlignment="Left"
                            Foreground="{StaticResource TealTexteFonce}"/>
 
-                <!-- Navigation : Les éléments inactifs sont discrets, l'actif ressort -->
                 <Button Content="Tableau de bord" Height="40" Margin="10,5"
                         Background="Transparent" Foreground="{StaticResource TealTexteMoyen}" BorderThickness="0"/>
 
-                <!-- BOUTON ACTIF : Prend la couleur de la page "Ma Formation" -->
                 <Button Content="Ma Formation" Height="40" Margin="10,5"
                         Background="{StaticResource StatutActif}" Foreground="White" BorderThickness="0" FontWeight="Bold">
                     <Button.Resources>
@@ -38,16 +34,13 @@
                 <Button Content="Messagerie" Height="40" Margin="10,5"
                         Background="Transparent" Foreground="{StaticResource TealTexteMoyen}" BorderThickness="0"/>
 
-                <!-- Déconnexion : Discret en bas -->
                 <Button Content="Déconnexion" Height="40" Margin="10,300,10,5"
-        Background="{StaticResource GrisBouton}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
-        Foreground="{StaticResource TealTexteFonce}"/>
-
+                        Background="{StaticResource GrisBouton}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
+                        Foreground="{StaticResource TealTexteFonce}"/>
             </StackPanel>
         </Border>
 
         <!-- ===== CONTENU PRINCIPAL ===== -->
-        <!-- Le fond passe sur votre couleur principale apaisante TealFond -->
         <Grid Grid.Column="1" Background="{StaticResource TealFond}" Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -71,13 +64,11 @@
             <StackPanel Grid.Row="1" Margin="30,20,30,0">
                 <TextBlock Text="Votre progression globale :" Foreground="{StaticResource TealTexteFonce}" FontWeight="SemiBold" Margin="0,0,0,5"/>
 
-                <!-- Jauge de progression : Gris neutre pour le fond, Vert pour l'avancement -->
                 <Border Height="18" Background="{StaticResource StatutAtteint}" CornerRadius="9">
                     <Border HorizontalAlignment="Left" Width="200" Height="18"
                             Background="{StaticResource StatutActif}" CornerRadius="9"/>
                 </Border>
 
-                <!-- BOUTON RETOUR : Secondaire, donc pas de fond lourd, juste une bordure -->
                 <Button Content="← Retour à la formation" Width="200" Height="32"
                         Margin="0,15,0,0" HorizontalAlignment="Left" Background="Transparent"
                         Foreground="{StaticResource TealTexteMoyen}" BorderBrush="{StaticResource TealTexteMoyen}" 
@@ -90,9 +81,7 @@
 
             <ScrollViewer Grid.Row="3" Margin="30,0,30,20" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
-
                     <!-- Module 1 : Terminé -->
-                    <!-- Utilisation de StatutAtteint (Gris-taupe) : Le cerveau comprend immédiatement que c'est du passé -->
                     <Border Background="White" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1"
                             CornerRadius="6" Padding="15" Margin="0,0,0,10">
                         <StackPanel>
@@ -103,8 +92,7 @@
                         </StackPanel>
                     </Border>
 
-                    <!-- Module 2 : En cours (L'élément prioritaire sur lequel focaliser) -->
-                    <!-- Utilisation de StatutActif (Vert) sur la bordure et le bouton principal d'action -->
+                    <!-- Module 2 : En cours -->
                     <Border Background="White" BorderBrush="{StaticResource StatutActif}" BorderThickness="2"
                             CornerRadius="6" Padding="15" Margin="0,0,0,10">
                         <StackPanel>
@@ -113,7 +101,6 @@
                             <TextBlock Text="1/4 micro-étapes complétées"
                                        Foreground="{StaticResource TealTexteMoyen}" FontSize="12" Margin="0,4,0,8"/>
 
-                            <!-- ACTION PRINCIPALE : C'est le seul gros bouton coloré de la zone, appel visuel fort -->
                             <Button Content="Reprendre ce module" Width="180" Height="32"
                                     HorizontalAlignment="Left" Background="{StaticResource StatutActif}"
                                     Foreground="White" FontWeight="Bold" BorderThickness="0" Click="ReprendreModule_Click">
@@ -127,33 +114,17 @@
                     </Border>
 
                     <!-- Module 3 : Non commencé -->
-                    <!-- Utilisation de StatutNonAtteint (Ambre foncé) ou Gris neutre pour signifier le futur sans anxiété -->
                     <Border Background="{StaticResource AmbreFond}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1"
                             CornerRadius="6" Padding="15" Margin="0,0,0,10">
                         <StackPanel>
                             <TextBlock Text="○ [Module 3] Approfondissement" FontWeight="Bold"
-                                       Foreground="{StaticResource AmbreTexteMoyen}"/>
-                            <TextBlock Text="Non commencé"
-                                       Foreground="{StaticResource AmbreTexteMoyen}" Opacity="0.7" FontSize="12" Margin="0,4,0,0"/>
+                                       Foreground="{StaticResource TealTexteFonce}"/>
+                            <TextBlock Text="0/5 micro-étapes complétées"
+                                       Foreground="{StaticResource TealTexteMoyen}" FontSize="12" Margin="0,4,0,0"/>
                         </StackPanel>
                     </Border>
-
                 </StackPanel>
             </ScrollViewer>
-
         </Grid>
-
-        <!-- ListView conservée à l'identique selon votre structure -->
-        <ListView x:Name="ListeFormations" Visibility="Collapsed">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Margin="5">
-                        <TextBlock Text="{Binding Titre}" FontWeight="Bold" FontSize="14"/>
-                        <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
     </Grid>
 </Window>
-

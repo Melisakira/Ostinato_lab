@@ -1,37 +1,41 @@
 using MySql.Data.MySqlClient;
+using Ostinato_lab.Data;          // Indispensable pour trouver ConnexionBDD
 
-public class Formation
+namespace Ostinato_lab.Controllers
 {
-    public int IdFormation { get; set; }
-    public string Titre { get; set; }
-    public string Description { get; set; }
-    public string Niveau { get; set; }
-}
-
-public class FormationDAL
-{
-    public static List<Formation> ObtenirToutesLesFormations()
+    public class Formation
     {
-        List<Formation> formations = new List<Formation>();
+        public int IdFormation { get; set; }
+        public string Titre { get; set; }
+        public string Description { get; set; }
+        public string Niveau { get; set; }
+    }
 
-        using (MySqlConnection conn = ConnexionBDD.ObtenirConnexion())
+    public class FormationDAL
+    {
+        public static List<Formation> ObtenirToutesLesFormations()
         {
-            conn.Open();
-            string requete = "SELECT id, titre, description, niveau FROM Formation";
-            MySqlCommand cmd = new MySqlCommand(requete, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
+            List<Formation> formations = new List<Formation>();
 
-            while (reader.Read())
+            using (MySqlConnection conn = ConnexionBDD.ObtenirConnexion())
             {
-                formations.Add(new Formation
+                conn.Open();
+                string requete = "SELECT id, titre, description, niveau FROM Formation";
+                MySqlCommand cmd = new MySqlCommand(requete, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    IdFormation = reader.GetInt32("id"),
-                    Titre = reader.GetString("titre"),
-                    Description = reader.GetString("description"),
-                    Niveau = reader.GetString("niveau")
-                });
+                    formations.Add(new Formation
+                    {
+                        IdFormation = reader.GetInt32("id"),
+                        Titre = reader.GetString("titre"),
+                        Description = reader.GetString("description"),
+                        Niveau = reader.GetString("niveau")
+                    });
+                }
             }
+            return formations;
         }
-        return formations;
     }
 }

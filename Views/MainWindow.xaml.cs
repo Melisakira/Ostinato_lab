@@ -1,6 +1,7 @@
+using Ostinato_lab.Data;        // Trouve la connexion BDD
 using System.Windows;
 
-namespace Ostinato_lab
+namespace Ostinato_lab.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -10,7 +11,11 @@ namespace Ostinato_lab
         public MainWindow()
         {
             InitializeComponent();
+
+            // Appel de la méthode de test intégrée
+            ConnexionBDD.TesterConnexion();
         }
+
         private void BtnConnexion_Click(object sender, RoutedEventArgs e)
         {
             TableauDeBord suite = new TableauDeBord();
