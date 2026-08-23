@@ -14,6 +14,8 @@ namespace Ostinato_lab.Views
 
             // Appel de la méthode de test intégrée
             ConnexionBDD.TesterConnexion();
+
+            Ostinato_lab.Controllers.FormationDAL.TesterSecuriteAccesAdmin();
         }
 
         private void BtnConnexion_Click(object sender, RoutedEventArgs e)
