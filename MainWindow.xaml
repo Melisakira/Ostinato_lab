@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="650" Width="950">
 
-    <Grid Background="#F5F5F5">
+    <!-- Fond général de la fenêtre passant sur votre couleur de fond principale douce -->
+    <Grid Background="{StaticResource TealFond}">
         <!-- Division de l'écran en deux colonnes équitables -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -15,37 +16,61 @@
         </Grid.ColumnDefinitions>
 
         <!-- COLONNE GAUCHE : Zone de calme visuel -->
-        <Border Grid.Column="0" Background="#E0E0E0" CornerRadius="10" Margin="20">
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <!-- Emplacement du logo Ostinato -->
-                <Rectangle Width="100" Height="100" Fill="#888888" Margin="10"/>
-                <TextBlock Text="[ LOGO OSTINATO ]" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#333333" FontSize="16"/>
-                <TextBlock Text="Votre espace d'apprentissage sans distraction" Margin="0,20,0,0" Foreground="#555555" HorizontalAlignment="Center" FontSize="14"/>
+        <!-- Remplacement du gris terne par le ton chaleureux et rassurant AmbreFond -->
+        <Border Grid.Column="0" Background="{StaticResource AmbreFond}" CornerRadius="12" Margin="25">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+                <!-- Emplacement du logo Ostinato (Utilisation de votre couleur sombre pour l'icône) -->
+                <Rectangle Width="100" Height="100" Fill="{StaticResource TealTexteFonce}" Margin="10">
+                    <Rectangle.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </Rectangle.Resources>
+                </Rectangle>
+
+                <TextBlock Text="[ LOGO OSTINATO ]" HorizontalAlignment="Center" FontWeight="Bold" 
+                           Foreground="{StaticResource TealTexteFonce}" FontSize="18"/>
+
+                <TextBlock Text="Votre espace d'apprentissage sans distraction" Margin="0,20,0,0" 
+                           Foreground="{StaticResource AmbreTexteMoyen}" HorizontalAlignment="Center" FontSize="14"
+                           TextWrapping="Wrap" TextAlignment="Center"/>
             </StackPanel>
         </Border>
 
         <!-- COLONNE DROITE : Formulaire sécurisant -->
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="320" Margin="40,0,0,0">
-            <TextBlock Text="Connexion" FontSize="26" FontWeight="Bold" Margin="0,0,0,25"/>
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="340" Margin="50,0,0,0">
 
-            <!-- Sélecteur de profil pour rassurer l'utilisateur (Besoin TDAH : clarté immédiate) -->
-            <TextBlock Text="Je suis :" Margin="0,0,0,5" Foreground="#555555" FontWeight="Bold"/>
-            <ComboBox Height="35" Margin="0,0,0,20" VerticalContentAlignment="Center" Background="White">
+            <TextBlock Text="Connexion" FontSize="28" FontWeight="Bold" 
+                       Foreground="{StaticResource TealTexteFonce}" Margin="0,0,0,25"/>
+
+            <!-- Sélecteur de profil pour rassurer l'utilisateur -->
+            <TextBlock Text="Je suis :" Margin="0,0,0,5" Foreground="{StaticResource TealTexteMoyen}" FontWeight="Bold" FontSize="14"/>
+            <ComboBox Height="38" Margin="0,0,0,20" VerticalContentAlignment="Center" Background="White" BorderBrush="{StaticResource StatutAtteint}">
                 <ComboBoxItem Content="Un apprenant" IsSelected="True"/>
                 <ComboBoxItem Content="Un formateur"/>
                 <ComboBoxItem Content="Un administrateur"/>
             </ComboBox>
 
             <!-- Champ Identifiant -->
-            <TextBlock Text="Identifiant ou Email :" Margin="0,0,0,5" Foreground="#555555"/>
-            <TextBox Height="35" Background="White" BorderBrush="#888888" BorderThickness="1" VerticalContentAlignment="Center" Margin="0,0,0,15"/>
+            <TextBlock Text="Identifiant ou Email :" Margin="0,0,0,5" Foreground="{StaticResource TealTexteMoyen}" FontSize="13"/>
+            <TextBox Height="38" Background="White" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1.5" 
+                     VerticalContentAlignment="Center" Margin="0,0,0,15" SelectionBrush="{StaticResource StatutActif}"/>
 
             <!-- Champ Mot de passe -->
-            <TextBlock Text="Mot de passe :" Margin="0,0,0,5" Foreground="#555555"/>
-            <PasswordBox Height="35" Background="White" BorderBrush="#888888" BorderThickness="1" VerticalContentAlignment="Center" Margin="0,0,0,25"/>
+            <TextBlock Text="Mot de passe :" Margin="0,0,0,5" Foreground="{StaticResource TealTexteMoyen}" FontSize="13"/>
+            <PasswordBox Height="38" Background="White" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1.5" 
+                         VerticalContentAlignment="Center" Margin="0,0,0,25" SelectionBrush="{StaticResource StatutActif}"/>
 
-            <!-- Bouton large, facile à cibler sans stress -->
-            <Button Content="Entrer dans mon espace" Height="42" Background="#A0A0A0" Foreground="White" FontWeight="Bold" BorderThickness="0" Click="BtnConnexion_Click"/>
+            <!-- Bouton large, facile à cibler sans stress (Vert d'action principal) -->
+            <Button Content="Entrer dans mon espace" Height="45" 
+                    Background="{StaticResource StatutActif}" Foreground="White" 
+                    FontWeight="Bold" FontSize="15" BorderThickness="0" Click="BtnConnexion_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="6"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
         </StackPanel>
     </Grid>
