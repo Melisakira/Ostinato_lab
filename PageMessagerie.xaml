@@ -2,37 +2,38 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Messagerie" Height="650" Width="950"
-        Background="White"
+        Background="{StaticResource TealFond}"
         WindowStartupLocation="CenterScreen">
 
-    <Grid Background="White">
+    <Grid Background="{StaticResource TealFond}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <!-- ===== NAV LATERALE ===== -->
-        <Border Grid.Column="0" Background="#D9D9D9">
+        <Border Grid.Column="0" Background="{StaticResource AmbreFond}">
             <StackPanel Margin="0,20,0,0">
                 <TextBlock Text="[ Mon Espace ]" FontWeight="Bold" FontSize="16"
-                           Margin="20,0,0,20"/>
+                           Margin="20,0,0,20" Foreground="{StaticResource TealTexteFonce}"/>
 
                 <Button Content="Tableau de bord" Height="40" Margin="10,5"
-                        Background="#BFBFBF" BorderThickness="0"/>
+                        Background="Transparent" Foreground="{StaticResource TealTexteMoyen}" BorderThickness="0"/>
                 <Button Content="Ma Formation" Height="40" Margin="10,5"
-                        Background="#BFBFBF" BorderThickness="0"/>
+                        Background="Transparent" Foreground="{StaticResource TealTexteMoyen}" BorderThickness="0"/>
                 <Button Content="Mes Jalons" Height="40" Margin="10,5"
-                        Background="#BFBFBF" BorderThickness="0"/>
+                        Background="Transparent" Foreground="{StaticResource TealTexteMoyen}" BorderThickness="0"/>
                 <Button Content="Messagerie" Height="40" Margin="10,5"
-                        Background="#A6A6A6" BorderThickness="0" FontWeight="Bold"/>
+                        Background="{StaticResource StatutActif}" Foreground="White" BorderThickness="0" FontWeight="Bold"/>
 
                 <Button Content="Déconnexion" Height="40" Margin="10,300,10,5"
-                        Background="#BFBFBF" BorderThickness="0"/>
+                        Background="{StaticResource GrisBouton}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
+                        Foreground="{StaticResource TealTexteFonce}"/>
             </StackPanel>
         </Border>
 
         <!-- ===== CONTENU PRINCIPAL ===== -->
-        <Grid Grid.Column="1" Background="#F5F5F5">
+        <Grid Grid.Column="1" Background="{StaticResource TealFond}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -41,31 +42,30 @@
 
             <!-- Titre -->
             <StackPanel Grid.Row="0" Margin="30,25,30,10">
-                <TextBlock Text="Messagerie" FontSize="24" FontWeight="Bold"/>
+                <TextBlock Text="Messagerie" FontSize="24" FontWeight="Bold" Foreground="{StaticResource TealTexteFonce}"/>
                 <TextBlock Text="Conversation avec [ NOM DU FORMATEUR ]" FontSize="13"
-                           Foreground="#666666" Margin="0,4,0,0"/>
-                <Separator Background="#CCCCCC" Margin="0,15,0,0"/>
+                           Foreground="{StaticResource TealTexteMoyen}" Margin="0,4,0,0"/>
+                <Separator Background="{StaticResource StatutAtteint}" Margin="0,15,0,0"/>
             </StackPanel>
 
             <!-- Fil de conversation -->
             <ScrollViewer Grid.Row="1" Margin="30,0,30,10" VerticalScrollBarVisibility="Auto">
                 <StackPanel>
 
-                    <!-- Message reçu (formateur) -->
+                    <!-- Message reçu (formateur) : Modifié avec vos clés bleues TDAH -->
                     <StackPanel HorizontalAlignment="Left" Margin="0,0,0,12" MaxWidth="500">
-                        <TextBlock Text="Formateur — 14:02" FontSize="11" Foreground="#999999" Margin="4,0,0,4"/>
-                        <Border Background="#E0E0E0" CornerRadius="8" Padding="12">
-                            <TextBlock Text="[ Message reçu du formateur ]" TextWrapping="Wrap"/>
+                        <TextBlock Text="Formateur — 14:02" FontSize="11" Foreground="{StaticResource AlerteInfoTexte}" Margin="4,0,0,4"/>
+                        <Border Background="{StaticResource AlerteInfoFond}" BorderBrush="{StaticResource AlerteInfoTexte}" BorderThickness="1" CornerRadius="8" Padding="12">
+                            <TextBlock Text="[ Message reçu du formateur ]" Foreground="{StaticResource AlerteInfoTexte}" TextWrapping="Wrap"/>
                         </Border>
                     </StackPanel>
 
-                    <!-- Message envoyé (apprenant) -->
+                    <!-- Message envoyé (apprenant) : Conservé à l'identique -->
                     <StackPanel HorizontalAlignment="Right" Margin="0,0,0,12" MaxWidth="500">
-                        <TextBlock Text="Vous — 14:10" FontSize="11" Foreground="#999999"
+                        <TextBlock Text="Vous — 14:10" FontSize="11" Foreground="{StaticResource TealTexteMoyen}"
                                    HorizontalAlignment="Right" Margin="0,0,4,4"/>
-                        <Border Background="#808080" CornerRadius="8" Padding="12">
-                            <TextBlock Text="[ Message envoyé par l'apprenant ]" TextWrapping="Wrap"
-                                       Foreground="White"/>
+                        <Border Background="White" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" CornerRadius="8" Padding="12">
+                            <TextBlock Text="[ Message envoyé par l'apprenant ]" Foreground="{StaticResource TealTexteFonce}" TextWrapping="Wrap"/>
                         </Border>
                     </StackPanel>
 
@@ -79,13 +79,14 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="0" Background="White" BorderBrush="#CCCCCC"
+                <Border Grid.Column="0" Background="White" BorderBrush="{StaticResource StatutAtteint}"
                         BorderThickness="1" CornerRadius="4" Padding="10" Margin="0,0,10,0">
-                    <TextBlock Text="[ Écrire un message... ]" Foreground="#999999"/>
+                    <TextBlock Text="[ Écrire un message... ]" Foreground="{StaticResource StatutAtteint}"/>
                 </Border>
 
                 <Button Grid.Column="1" Content="Envoyer" Width="100" Height="40"
-                        Background="#808080" Foreground="White" BorderThickness="0" FontWeight="Bold"/>
+                        Background="{StaticResource GrisBouton}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
+                        Foreground="{StaticResource TealTexteFonce}" FontWeight="Bold"/>
             </Grid>
 
         </Grid>

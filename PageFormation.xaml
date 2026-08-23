@@ -40,8 +40,9 @@
 
                 <!-- Déconnexion : Discret en bas -->
                 <Button Content="Déconnexion" Height="40" Margin="10,300,10,5"
-                        Background="Transparent" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
-                        Foreground="{StaticResource TealTexteMoyen}"/>
+        Background="{StaticResource GrisBouton}" BorderBrush="{StaticResource StatutAtteint}" BorderThickness="1" 
+        Foreground="{StaticResource TealTexteFonce}"/>
+
             </StackPanel>
         </Border>
 
