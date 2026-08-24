@@ -45,7 +45,7 @@
 
             <!-- Sélecteur de profil pour rassurer l'utilisateur -->
             <TextBlock Text="Je suis :" Margin="0,0,0,5" Foreground="{StaticResource TealTexteMoyen}" FontWeight="Bold" FontSize="14"/>
-            <ComboBox Height="38" Margin="0,0,0,20" VerticalContentAlignment="Center" Background="White" BorderBrush="{StaticResource StatutAtteint}">
+            <ComboBox x:Name="ProfilSelect" Height="38" Margin="0,0,0,20" VerticalContentAlignment="Center" Background="White" BorderBrush="{StaticResource StatutAtteint}">
                 <ComboBoxItem Content="Un apprenant" IsSelected="True"/>
                 <ComboBoxItem Content="Un formateur"/>
                 <ComboBoxItem Content="Un administrateur"/>
